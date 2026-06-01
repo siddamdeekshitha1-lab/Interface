@@ -72,89 +72,143 @@ namespace Interface
     //
     //
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-    interface IphoneBasic
-    {
-        void Calling();
-        void Receiving();
-        void SendMessage();
-        void EndCall();
-    }
-    class IphoneSE : IphoneBasic
-    {
-        public void Calling()
-        {
-            Console.WriteLine("IphoneSE is Calling");
-        }
-        public void Receiving()
-        {
-            Console.WriteLine("IphoneSE is receiving");
-        }
-        public void SendMessage()
-        {
-            Console.WriteLine("IphoneSE is sending messages");
-        }
-        public void EndCall()
-        {
-            Console.WriteLine("IphoneSE is ending the call");
-        }
-    }
-    interface  IphoneAdvanced
-    {
-        void FaceId();
-        void Videocall();
-        void AirDrops();
-    }
-    class Iphone16 : IphoneBasic, IphoneAdvanced
-    {
-        public void Calling()
-        {
-            Console.WriteLine("Iphone16 is Calling");
-        }
-        public void Receiving()
-        {
-            Console.WriteLine("Iphone16 is receiving");
-        }
-        public void SendMessage()
-        {
-            Console.WriteLine("Iphone16 is sending messages");
-        }
-        public void EndCall()
-        {
-            Console.WriteLine("Iphone16 is ending the call");
-        }
-        public void FaceId()
-        {
-            Console.WriteLine("iphone 16 face id");
-        }
-        public void Videocall()
-        {
-            Console.WriteLine("ipnone 16 video call");
-        }
-        public void AirDrops()
-        {
-            Console.WriteLine("iphone 16 air drop files");
-        }
-      
+    //interface IphoneBasic
+    //{
+    //    void Calling();
+    //    void Receiving();
+    //    void SendMessage();
+    //    void EndCall();
+    //}
+    //class IphoneSE : IphoneBasic
+    //{
+    //    public void Calling()
+    //    {
+    //        Console.WriteLine("IphoneSE is Calling");
+    //    }
+    //    public void Receiving()
+    //    {
+    //        Console.WriteLine("IphoneSE is receiving");
+    //    }
+    //    public void SendMessage()
+    //    {
+    //        Console.WriteLine("IphoneSE is sending messages");
+    //    }
+    //    public void EndCall()
+    //    {
+    //        Console.WriteLine("IphoneSE is ending the call");
+    //    }
+    //}
+    //interface  IphoneAdvanced
+    //{
+    //    void FaceId();
+    //    void Videocall();
+    //    void AirDrops();
+    //}
+    //class Iphone16 : IphoneBasic, IphoneAdvanced
+    //{
+    //    public void Calling()
+    //    {
+    //        Console.WriteLine("Iphone16 is Calling");
+    //    }
+    //    public void Receiving()
+    //    {
+    //        Console.WriteLine("Iphone16 is receiving");
+    //    }
+    //    public void SendMessage()
+    //    {
+    //        Console.WriteLine("Iphone16 is sending messages");
+    //    }
+    //    public void EndCall()
+    //    {
+    //        Console.WriteLine("Iphone16 is ending the call");
+    //    }
+    //    public void FaceId()
+    //    {
+    //        Console.WriteLine("iphone 16 face id");
+    //    }
+    //    public void Videocall()
+    //    {
+    //        Console.WriteLine("ipnone 16 video call");
+    //    }
+    //    public void AirDrops()
+    //    {
+    //        Console.WriteLine("iphone 16 air drop files");
+    //    }
 
+
+    //}
+    //internal class Program
+    //{
+    //    static void Main(string[] args)
+    //    {
+    //        IphoneBasic obj = new IphoneSE();
+    //        obj.Calling();
+    //        obj.Receiving();
+    //        obj.SendMessage();
+    //        obj.EndCall();
+    //        obj=new Iphone16();
+    //        obj.Calling();
+    //        obj.Receiving();
+    //        obj.SendMessage();
+    //        obj.EndCall();
+    //       IphoneAdvanced obj2= new Iphone16();
+    //        obj2 .FaceId();
+    //        obj2.Videocall();
+    //        obj2.AirDrops();
+    //    }
+    //}
+    //
+    //
+    //
+    //
+    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--==-=-=-=-=-=-=-=-=-=-=-=-=-=-
+    interface IpaymentGateway
+    {
+        void Processpayment();
+    }
+    class Paypal: IpaymentGateway
+    {
+        
+        public void Processpayment()
+        {
+            Console.WriteLine("paypal payment....");
+        }
+    }
+    class UPIGateway:IpaymentGateway
+    {
+        public void Processpayment()
+        {
+            Console.WriteLine("UPIGateway payment....");
+        }
+    }
+    class CreditCard:IpaymentGateway
+    {
+        public void Processpayment()
+        {
+            Console.WriteLine("CredirCard payment...");
+        }
+    }
+    class DebitCard:IpaymentGateway
+    {
+        public void Processpayment()
+        {
+            Console.WriteLine("Debitcard payment...");
+        }
     }
     internal class Program
     {
         static void Main(string[] args)
         {
-            IphoneBasic obj = new IphoneSE();
-            obj.Calling();
-            obj.Receiving();
-            obj.SendMessage();
-            obj.EndCall();
-            obj=new Iphone16();
-            obj.Calling();
-            obj.Receiving();
-            obj.SendMessage();
-            obj.EndCall();
-           IphoneAdvanced obj2= new Iphone16();
-            obj2 .FaceId();
-            obj2.Videocall();
-            obj2.AirDrops();
+            IpaymentGateway obj = new Paypal();
+            obj.Processpayment();
+             obj = new UPIGateway();
+            obj.Processpayment();
+           obj =new CreditCard();
+            obj.Processpayment() ;
+         obj = new DebitCard();
+            obj.Processpayment();
+
         }
     }
+
 }
